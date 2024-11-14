@@ -35,5 +35,24 @@ app.get("/contacto", (req,res) => {
     res.render("contacto")
 })
 
+//errores
+
+app.get("/error", function (req, res) {
+    throw "BROKEN";
+});// ruta de error 500 
+
+    app.use((err, req, res, next) => {
+        res.type("text/plain");
+        res.status(500);
+        res.send("ERROR 500 - Servidor Roto");
+    });
+
+    app.use((req, res) => {
+        console.log("404");
+        res.type("text/plain");
+        res.status(404);
+        res.send("ERROR 404-No encontrado");
+    });
+
 //exportamos la app
 module.exports = app;
