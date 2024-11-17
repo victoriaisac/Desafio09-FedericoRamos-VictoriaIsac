@@ -21,7 +21,7 @@ app.set("views", path.join(__dirname, "views"));
 hbs.registerPartials(path.join(__dirname, "views/partials"))
 
 //ruta de index
-app.get("/", (req,res) => {
+app.get("/index", (req,res) => {
     res.render("index")
 })
 
